@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin: 0 auto;
+    padding: 32px;
+    max-width: 978px;
+}
+
+html {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    padding-top: 4rem;
+    font-size: 1.7em;
+    line-height: 1.7em;
+    font-weight: 500;
+    
+}
+
+h3 {
+        font-weight: 500;
+        font-size: 1.3em;
+        line-height: 2em;
+        padding-top: 4rem;
+}
+
+p {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    line-height: 1.7em;
+    font-weight: 400;
+}
