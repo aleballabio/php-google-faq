@@ -67,6 +67,7 @@
                 "risposta" => [
                     "Your account is associated with a country (or territory) in the Terms of Service so that we can determine two things:",
                     "ilist" => [
+                        "category" =>
                         "The Google affiliate that provides the services, that processes your information, and that is responsible for complying with applicable privacy laws. Generally, Google offers its consumer services through either of two companies:",
 
                         "sublist" => [
@@ -75,8 +76,6 @@
                             "Google LLC, based in the United States, for the rest of the world",
                         ],
                     ],
-
-                    "Google LLC, based in the United States, for the rest of the world",
                 ],
             ],
         ];
@@ -93,30 +92,24 @@
                         foreach ($contenuto as $subarr => $rispostam) {
                             if (is_array($rispostam)) {
                                 echo "<ol>";
-                                $i = 1;
                                 foreach ($rispostam as $cat => $item) {
 
-                                    if (is_array($item)) {
-                                        echo "<li><ol type=\"a\">";
-                                        $a = 1;
-                                        $a++;
+                                    if (is_array($item) && ($cat === "sublist")) {
+                                        echo "<ol type=\"a\">";
+
                                         foreach ($item as $item2) {
-                                            if ($a === count($item)) {
-                                                echo "<li>$item2</li></ol>";
-                                            } else {
-                                                $a++;
-                                                echo "<li>$item2</li>";
-                                            }
+                                            echo "<li>$item2</li>";
                                         }
+
+                                        echo "</ol>";
+                                        echo "</li>";
+                                    } elseif ($cat === "category") {
+                                        echo "<li>$item";
                                     } else {
-                                        if ($i === count($rispostam)) {
-                                            echo "<li>{$item}</li></ol>";
-                                        } else {
-                                            $i++;
-                                            echo "<li>{$item}</li>";
-                                        }
+                                        echo "<li>$item</li>";
                                     }
                                 }
+                                echo "</ol>";
                             } else {
                                 echo "<p>{$rispostam}</p>";
                             }
